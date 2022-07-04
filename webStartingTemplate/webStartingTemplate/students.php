@@ -51,7 +51,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
+            <div class="row">
 				<div class="col-lg-3">
 					<div class="card-header bg-dark text-white text-center">
 						<span>Students</span>
@@ -61,50 +61,33 @@
 						<span class="float-right">00</span>
 					</div>
 					<div class="card-footer"></div>
-				</div>
-				<div class="col-lg-3">
-					<div class="card-header bg-dark text-white text-center">
-						<span>Available Courses</span>
-					</div>
-					<div class="card-body">
-						<span><i class="fa fa-folder-open fa-3x"></i></span>
-						<span class="float-right">00</span>
-					</div>
-					<div class="card-footer"></div>
-				</div>
-				<div class="col-lg-3">
-					<div class="card-header bg-dark text-white text-center">
-						<span>Campuses</span>
-					</div>
-					<div class="card-body">
-						<span><i class="fa fa-graduation-cap fa-3x"></i></span>
-						<span class="float-right">00</span>
-					</div>
-					<div class="card-footer"></div>
-				</div>
-				<div class="col-lg-3">
-					<div class="card-header bg-dark text-white text-center">
-						<span>Users</span>
-					</div>
-					<div class="card-body">
-						<span><i class="fa fa-group fa-3x"></i></span>
-						<span class="float-right">00</span>
-					</div>
-					<div class="card-footer"></div>
-				</div>
-				<div class="col-lg-12">
-					<div class="card-header bg-dark text-white text-center">
-						<span>Student Analysis</span>
-					</div>
-					<div class="card-body"></div>
-					    <span><i class="fa fa-graduation-cap fa-3x"></i></span>
-				</div>
-
-			</div>
-		</div>
-	</div>
-	
-<script src="jquery.min.js"></script>
-<script src="bootstrap/js/bootstrap.min.js"></script>
-</body>
-</html>
+                    <table class="table table-striped table-hover table-responsive"></table>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Full Name</th>
+                                <th>Phone Number</th>
+                                <th>Email</th>
+                                <th>Gender</th>
+                                <th>Course</th>
+                                <th>Enrolled on</th>
+                            </tr>
+				
+            <tbody>
+                <?php while($fetch = mysqli_fetch_array($sqlQuery)) { ?>
+                        <tr>
+                            <td><?php echo $fetch['no']?></td>
+                            <td><?php echo $fetch['fullname']?></td>
+                            <td><?php echo $fetch['phonenumber']?></td>
+                            <td><?php echo $fetch['email']?></td>
+                            <td><?php echo $fetch['gender']?></td>
+                            <td><?php echo $fetch['course']?></td>
+                            <td><?php echo $fetch['created_at']?></td>
+                            
+                        </tr>
+                    
+                    <?php } ?>
+                </tbody>
+            
+                
+                    
