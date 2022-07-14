@@ -11,13 +11,13 @@
     position: absolute;
     width: 100%;
     height: 50px;
-    background-color: #00ffff;
+    background-color: #f57e20;
     z-index: 6;
 }    
 .sidebar{
     position: absolute;
     width: 100%;
-    background-color: #dc143c;
+    background-color: #07b00d;
     height: 100vh;
     z-index: 5;
     padding-top: 50px;
@@ -31,7 +31,7 @@
     padding: 20px 10px;
 }
 .sidebar ul li a{
-    color: #00008b;
+    color: white;
     text-decoration: none;
 }
 .main-content{

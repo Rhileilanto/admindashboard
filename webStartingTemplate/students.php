@@ -27,7 +27,7 @@ $sqlQuery = mysqli_query($conn,"SELECT * FROM enrollment");
 				</div>
 			</div>
             <div class="row">
-				<div class="col-lg-3">
+				<div class="col-lg-12">
 					<div class="card-header bg-dark text-white text-center">
 						<span>Students</span>
 					</div>
@@ -46,46 +46,40 @@ $sqlQuery = mysqli_query($conn,"SELECT * FROM enrollment");
                                 <th>Gender</th>
                                 <th>Course</th>
                                 <th>Enrolled on</th>
-								<th>Actions</th>
+								<th>Action</th>
                             </tr>
                         </head> 
 						<tbody>
 							<tr>
-								<td>1.</td>
-								<td>Leah Wanjiru</td>
-								<td>+254713027595</td>
-								<td>leah79675@gmail.com</td>
-								<td>Female</td>
-								<td>Standard</td>
-								<td>23rd August 2022</td>
-								<td>
-									<a href="#" class="btn btn-primary btn-sm">
-										<i class="fa fa-edit"></i>
-									</a>
-									<a href="#" class="btn btn-info btn-sm">
-										<i class="fa fa-eye"></i>
-									</a>
-									<a href="#" class="btn btn-danger btn-sm">
-										<i class="fa fa-trash"></i>
-									</a>
-								</td>
-                            </tr>	
-                        <tbody>
-                    		
-                            <?php while($fetch = mysqli_fetch_array($sqlQuery)) { ?>
+							<?php while($fetch = mysqli_fetch_array($sqlQuery)) { ?>
                                     <tr>
-                                        <td><?php echo $fetch['no']?></td>
+										<td><?php echo $fetch['no']?></td>
                                         <td><?php echo $fetch['fullname']?></td>
                                         <td><?php echo $fetch['phonenumber']?></td>
                                         <td><?php echo $fetch['email']?></td>
                                         <td><?php echo $fetch['gender']?></td>
                                         <td><?php echo $fetch['course']?></td>
-                                        <td><?php echo $fetch['created_at']?></td>
+                                        <td><?php echo $fetch['created_at']?></td>									
+										<td>
+									    <a href="edit-enrollment.php?id=<?php echo $fetch['no']?>" class="btn btn-primary btn-sm">
+									        <i class="fa fa-edit"></i>
+									    </a>
+									    <a href="view-enrollment.php?id=<?php echo $fetch['no']?>" class="btn btn-secondary btn-sm">																	
+										    <i class="fa fa-eye"></i>
+									    </a>									
+									    <a href="delete-enrollment.php?id=<?php echo $fetch['no']?>" class="btn btn-danger btn-sm">
+										    <i class="fa fa-trash"></i>
+									    </a>
+								        </td>
                                         
                                     </tr>
-                                
+								
+                            </tr>
 							<?php  }?>
-
+                        
+                    		
+                            
+                            
                             </tbody>
 					</table>
 				</div>
@@ -93,8 +87,7 @@ $sqlQuery = mysqli_query($conn,"SELECT * FROM enrollment");
             </div>
         </div>
 
-<script src="jquery.min.js"></script>
-<script src="bootstrap/js/bootstrap.min.js"></script>
+    <?php require_once('includes/script.php')?>
 </body>
 </html>
             
