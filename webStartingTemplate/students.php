@@ -30,7 +30,8 @@ $sqlQuery = mysqli_query($conn,"SELECT * FROM enrollment");
 				<div class="col-lg-12">
 					<div class="card-header bg-dark text-white text-center">
 						<span>Students</span>
-					</div>
+						<button name="enroll" class="btn btn-primary btn-sm float-right" >Add Student</button>
+					</div>			
 					<div class="card-body">
 						<span><i class="fa fa-group fa-3x"></i></span>
 						<span class="float-right">00</span>

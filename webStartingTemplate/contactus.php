@@ -1,66 +1,80 @@
+<?php
+
+$server="localhost";
+$username="root";
+$password="";
+$database="zalego";
+
+$conn = mysqli_connect($server,$username,$password,$database);
+$sqlQuery = mysqli_query($conn,"SELECT * FROM contactus");
+?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <?php  require_once('includes/headers.php')?> 
 </head>
 <body>
+	<!-- All our code. write here   -->
+	<?php  require_once('includes/navbar.php')?>
+	
+	<div class="sidebar">
+	<?php require_once('includes/sidebar.php')?>
+	</div>
+	<div class="main-content">
 
-    <!--Contact Us starts here-->
-    <form action="contactus.php" method="post"></form>
-    <div class="row pt-5">
-            <h1>Contact Us</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore odit exercitationem soluta dolor nisi quo consequuntur nostrum iste, 
-                similique officiis quas sapiente repellendus! Minus repellendus rem soluta neque consequatur minima.
-            </p>
-            <form>        
-                <div class="row">
-                    <div class="col-lg-6 ">
-                        <label for="firstname" class="form-lebel">First Name</label>
-                        <input type="text" name="firstname" class="form-control" placeholder="Enter Your First Name">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-12 pt-3">
+					<div class="card-header bg-dark text-white text-center">
+						<span>Contactus</span>
+					</div>
+                    <div class="card-body">
+                        <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Phone Number</th>
+                                <th>Email</th>
+                                <th>Message</th>
+                                <th>created_at</th>
+                            </tr>
+                        </head> 
+						<tbody>
+							<tr>
+							<?php while($fetch = mysqli_fetch_array($sqlQuery)) { ?>
+                                    <tr>
+										<td><?php echo $fetch['no']?></td>
+                                        <td><?php echo $fetch['firstname']?></td>
+                                        <td><?php echo $fetch['lastname']?></td>
+                                        <td><?php echo $fetch['phonenumber']?></td>
+                                        <td><?php echo $fetch['email']?></td>                                    
+                                        <td><?php echo $fetch['message']?></td>                    
+                                        <td><?php echo $fetch['created_at']?></td>	
+                                        <td>
+                                            
+                                        <a href="edit-enrollment.php?id=<?php echo $fetch['no']?>" class="btn btn-primary btn-sm">
+									        <i class="fa fa-edit"></i>
+									    </a>
+									    <a href="view-enrollment.php?id=<?php echo $fetch['no']?>" class="btn btn-secondary btn-sm">																	
+										    <i class="fa fa-eye"></i>
+									    </a>									
+									    <a href="delete-enrollment.php?id=<?php echo $fetch['no']?>" class="btn btn-danger btn-sm">
+										    <i class="fa fa-trash"></i>
+									    </a>  
+                                        </td>								
+                                    </tr>
+                            <?php  }?> 
+                        </tbody>              
+                     </table>
                     </div>
-                    <div class="col-lg-6">
-                        <label for="lastname" class="form-lebel">Last Name</label>
-                        <input type="text" name="lastname" class="form-control" placeholder="Enter Your Last Name">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 ">
-                        <label for="PhoneNumber" class="form-lebel">Phone Number</label>
-                        <input type="tel" class="form-control" placeholder="Enter Your Phone Number">
-                    </div>
-                    <div class="col-lg-6 ">
-                        <label for="Email" class="form-lebel">Email</label>
-                        <input type="email" name="email"class="form-control" placeholder="Enter Email Address">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <label for="message" class="form-label">Your message</label>
-                        <textarea cols="30" rows="5" class="form-control"></textarea>
-                    </div>
-                </div>
-                <button type="submit" name="submitButton" class="btn btn-primary">Send Message</button>
-            </form>
-        </div>
-        <button type="submit" name="enroll" class="btn btn-primary" >Submit application</button>
+                    <div class="cardfooter"></div>
+				</div>
+			</div>
+         </div>
     </div>
-        <!--End of Contact Us-->
-
-        <hr>
-        <footer>
-            &COPY;Zalego Academy 2022
-        </footer>
-    </div>
-    
-        
-    <script src="bootstrap-5.2.0-beta1-dist/js/bootstrap.bundle.min.js.map"></script>
-     <!--<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>-->
-    <script src="bootstrap-5.2.0-beta1-dist/js/bootstrap.min.js"></script>
+     <?php require_once('includes/script.php')?>
 </body>
 </html>
