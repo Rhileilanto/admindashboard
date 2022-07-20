@@ -25,12 +25,13 @@ while($fetchStudentRecords = mysqli_fetch_array($sqlFetchStudent))
 </head>
 <body>
         <div class="card-body">
-        <form action="enroll.php" method="POST">
+            
+        <form action="addstudent.php" method="POST">
             <div class="row"> 
                 <div class="mb-3 col-lg-6 col-md-6 col-sm-12">
                     <label for="fullname" class="form-label">Full Name:</label>
                     <input type="text" class="form-control" name="fullname" placeholder="Enter your full name">
-                </div>  
+                </div>                 
                 <div class="mb-3 col-lg-6 col-md-6 col-sm-12">
                     <label for="phoneNumber" class="form-label">Phone Number:</label>
                     <input type="tel" name="phonenumber"  class="form-control" placeholder="+2547.....">

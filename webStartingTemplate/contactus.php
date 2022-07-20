@@ -55,13 +55,13 @@ $sqlQuery = mysqli_query($conn,"SELECT * FROM contactus");
                                         <td><?php echo $fetch['created_at']?></td>	
                                         <td>
                                             
-                                        <a href="edit-enrollment.php?id=<?php echo $fetch['no']?>" class="btn btn-primary btn-sm">
+                                        <a href="edit-message.php?id=<?php echo $fetch['no']?>" class="btn btn-primary btn-sm">
 									        <i class="fa fa-edit"></i>
 									    </a>
-									    <a href="view-enrollment.php?id=<?php echo $fetch['no']?>" class="btn btn-secondary btn-sm">																	
+									    <a href="view-message.php?id=<?php echo $fetch['no']?>" class="btn btn-secondary btn-sm">																	
 										    <i class="fa fa-eye"></i>
 									    </a>									
-									    <a href="delete-enrollment.php?id=<?php echo $fetch['no']?>" class="btn btn-danger btn-sm">
+									    <a href="delete-message.php?id=<?php echo $fetch['no']?>" class="btn btn-danger btn-sm">
 										    <i class="fa fa-trash"></i>
 									    </a>  
                                         </td>								
